@@ -1,8 +1,8 @@
 ---
-- name: Install ans start httpd
+- name: Install start and Enable httpd
   hosts: all
   tasks:
-    - name: install the httpd
+    - name: Install the httpd
       yum:
         name: httpd
         state: latest
