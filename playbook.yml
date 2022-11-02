@@ -1,0 +1,41 @@
+---
+- name: Install ans start httpd
+  hosts: all
+  tasks:
+    - name: install the httpd
+      yum:
+        name: httpd
+        state: latest
+
+    - name: create web page
+      copy:         
+        content: "Crypto-Gen"
+        dest: /var/www/html/index.html
+
+
+    - name: start and enabled httpd service
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+
+    - name: http enable in firewalld
+      firewalld:
+        service: http
+        permanent: yes
+        state: enabled
+        immediate: yes
+      ignore_errors: yes
+
+- name: test httpd accessibility 
+  hosts: localhost
+  become: false
+  tasks:
+
+    - name: check the httpd web
+      uri: 
+        url: http://172.20.12.7
+        return_content: yes
+        status_code: 200
+      register: output_content 
+...
