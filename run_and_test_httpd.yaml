@@ -14,7 +14,7 @@
 
 - name: test httpd accessibility
   become: False
-  hosts: localhost
+  hosts: all
   tasks:
   - name: test httpd access
     uri:
