@@ -1,0 +1,9 @@
+---
+- name: useradd playbook
+  hosts: all
+  tasks:
+    - user:
+        name: "{{ uname }}"
+
+
+...
