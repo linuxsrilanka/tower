@@ -9,20 +9,18 @@
                                                                        
     - name: Add user group       
       group:                     
-        name: "{{ item.name}}"   
-        gid:  "{{item.gid}}"     
-        state: present 
-      loop: "{{users}}"          
+        name: "{{name}}"   
+        gid:  "{{gid}}"     
+        state: present          
                                                                                                                                           
     - name: user add             
       user:
-        name: "{{item.name}}"
-        uid: "{{item.uid}}"
-        group: "{{item.name}}"
-        password: "{{item.pass}}"
+        name: "{{name}}"
+        uid: "{{uid}}"
+        group: "{{name}}"
+        password: "{{pass}}"
         update_password: always
         comment: "{{item.comment}}"
-      loop: "{{users}}"
     
     - name: copy password file
       copy:
