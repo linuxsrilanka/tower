@@ -2,7 +2,7 @@
 - name: user create              
   hosts: all                     
   tasks:                         
-    - include_vars: key-based-userlist.yml
+    - include_vars: https://github.com/linuxsrilanka/tower/blob/main/key-based-userlist.yml
       tags:                      
         - move_home              
         - renew_keys             
