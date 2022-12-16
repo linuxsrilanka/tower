@@ -1,0 +1,4 @@
+---
+
+users:
+ - { name: 'testuser2', pass: 'nopassword', uid: '1100', gid: '1100', comment: 'testuser2@cypto-gen.com' }
