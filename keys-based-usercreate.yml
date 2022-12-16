@@ -9,8 +9,8 @@
                                                                        
     - name: Add user group       
       group:                     
-        name: "{{ name}}"   
-        gid:  "{{ gid}}"     
+        name: "{{name}}"   
+        gid:  "{{gid}}"     
         state: present           
                                                                                                                                           
     - name: user add             
