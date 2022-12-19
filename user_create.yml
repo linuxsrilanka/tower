@@ -6,6 +6,7 @@
     - move_home
     - renew_keys
     - defpermit
+    
     - name: Add user Group
       group:
         name: "{{ name }}"
@@ -33,9 +34,9 @@
     - name: move home dirs
       shell:
         cmd: '[ -d /home/chroot/home/{{name}} ] && echo ||  mv /home/{{name}} /home/chroot/home/'
-      loop: "{{ users }}"
       tags:
         - move_home
+
     
     - name: create .ssh dir
       file:
@@ -52,8 +53,8 @@
         key: "{{ lookup ('file', './pub-keys/{{name}}') }}"
         path: "/home/chroot/home/{{name}}/.ssh/authorized_keys"
         state: present
-      loop: "{{ users }}"
       tags: renew_keys
+
    
     - name: Create user permit config files and default line
       shell:
