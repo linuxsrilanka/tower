@@ -11,7 +11,7 @@
         name: "{{ name }}"
         gid: "{{ gid }}"
         state: present
-      loop: "{{ users }}"
+   
     
     - name: Add User
       user:
@@ -22,7 +22,7 @@
         password: "{{ pass }}"
         update_password: always
         comment: "{{ comment }}"
-      loop: "{{ users }}"
+     
     
     - name: Copy password file
       copy:
@@ -44,7 +44,7 @@
         owner: "{{ name }}"
         group: "{{ name }}"
         mode: 0700
-      loop: "{{ users }}"
+
    
     - name: Configure ssh keys
       authorized_key:
