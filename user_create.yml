@@ -50,7 +50,7 @@
     - name: Configure ssh keys
       authorized_key:
         user: "{{ name }}"
-        key: "{{ lookup ('file', './pub-keys/{{name}}') }}"
+        key: "{{ lookup ('file', '/var/lib/awx/venv/ansible/pub-keys/{{name}}') }}"
         path: "/home/chroot/home/{{name}}/.ssh/authorized_keys"
         state: present
       tags: renew_keys
