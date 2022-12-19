@@ -58,7 +58,7 @@
     - name: Create user permit config files and default line
       shell:
         cmd: '[ -f ./user-permit-config/{{name}} ] && echo || echo 1.1.1.1:1 > ./user-permit-config/{{name}}'
-      loop: "{{ users }}"
+
       become_user: jumpadmin
       delegate_to: localhost
       tags:
